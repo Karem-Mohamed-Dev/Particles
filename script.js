@@ -36,6 +36,7 @@ window.addEventListener("mousemove", (e) => {
   // setTimeout(() => {
   //   mouse.radius = 0;
   // }, 100);
+  
 });
 
 class Particle {
