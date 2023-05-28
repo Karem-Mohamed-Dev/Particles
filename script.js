@@ -36,7 +36,6 @@ window.addEventListener("mousemove", (e) => {
   // setTimeout(() => {
   //   mouse.radius = 0;
   // }, 100);
-  
 });
 
 class Particle {
@@ -99,7 +98,6 @@ function render() {
       const a = particlesArr[i].x - particlesArr[j].x;
       const b = particlesArr[i].y - particlesArr[j].y;
       const distance = Math.sqrt(a * a + b * b);
-      // console.log(distance)
       if (distance < space.value) {
         ctx.beginPath();
         ctx.moveTo(particlesArr[i].x, particlesArr[i].y);
