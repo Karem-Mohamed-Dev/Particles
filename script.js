@@ -5,7 +5,6 @@ const maxSize = document.getElementById("maxSize");
 const moveSpeed = document.getElementById("moveSpeed");
 const apply = document.getElementById("apply");
 const controls = document.getElementById("controls");
-console.log(controls.clientHeight)
 
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
@@ -13,12 +12,12 @@ let particlesArr = [];
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-canvas.style.height = `calc(100vh - ${controls.clientHeight}px)`
+canvas.style.height = `calc(100vh - ${controls.clientHeight}px)`;
 
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  canvas.style.height = `calc(100vh - ${controls.clientHeight}px)`
+  canvas.style.height = `calc(100vh - ${controls.clientHeight}px)`;
 });
 
 const mouse = {
@@ -41,7 +40,7 @@ class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Number(Math.random() * maxSize.value + minSize.value);
+    this.size = Number(Math.round(Math.random() * maxSize.value + Number(minSize.value)));
     this.speedX = Math.random() * moveSpeed.value - moveSpeed.value / 2;
     this.speedY = Math.random() * moveSpeed.value - moveSpeed.value / 2;
   }
@@ -54,7 +53,6 @@ class Particle {
     if (this.y > canvas.height || this.y < 0) {
       this.speedY = -this.speedY;
     }
-
     const dx = mouse.x - this.x;
     const dy = mouse.y - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
@@ -123,4 +121,6 @@ animate();
 
 apply.addEventListener("click", () => {
   init();
+  console.log(minSize.value)
+
 });
